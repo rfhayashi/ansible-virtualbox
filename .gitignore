@@ -4,3 +4,4 @@
 roles
 .kitchen
 .kitchen.local.yml
+Dockerfile-kitchen*

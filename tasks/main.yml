@@ -1,0 +1,13 @@
+---
+- name: creates virtualbox download cache dir
+  file:
+    path: "{{ virtualbox_download_cache }}"
+    state: directory
+    recurse: true
+- name: downloads virtualbox
+  get_url:
+    url: "{{ virtualbox_rpm_url }}"
+    checksum: sha256:{{ virtualbox_rpm_checksum}}
+    dest: "{{ virtualbox_download_cache }}/{{ virtualbox_rpm_file }}"
+- name: installs virtualbox
+  yum: name="{{ virtualbox_download_cache }}/{{ virtualbox_rpm_file }}"

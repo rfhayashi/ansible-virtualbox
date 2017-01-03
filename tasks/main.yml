@@ -1,4 +1,6 @@
 ---
+- name: installs dkms
+  yum: name=dkms
 - name: creates virtualbox download cache dir
   file:
     path: "{{ virtualbox_download_cache }}"
